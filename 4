@@ -1,0 +1,25 @@
+clear; clc;
+X = [2 5 1;
+     4 8 3;
+     6 11 7;
+     9 15 10;
+     13 20 14];
+m = mean(X);
+disp('열 평균 =')
+disp(m)
+Xc = X - m;
+disp('Xc =')
+disp(Xc)
+S = Xc' * Xc;
+disp('S =')
+disp(S)
+[V, D] = eig(S);
+lambda = diag(D);
+disp('고유값 =')
+disp(lambda)
+[lambda_max, idx] = max(lambda);
+disp('최대 고유값 =')
+disp(lambda_max)
+v = V(:, idx);
+disp('고유벡터 =')
+disp(v)
