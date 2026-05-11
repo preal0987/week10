@@ -1,0 +1,17 @@
+clear; clc;
+A = [5  2 -1;
+    -2  6  3;
+     1 -1  7];
+b = [8; 5; 12];
+x1 = inv(A)*b;
+disp('x1 =')
+disp(x1)
+x2 = A\b;
+disp('x2 =')
+disp(x2)
+diff = x1 - x2;
+disp('x1 - x2 =')
+disp(diff)
+d = det(A);
+disp('det(A) =')
+disp(d)
