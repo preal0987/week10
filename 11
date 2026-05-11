@@ -1,0 +1,26 @@
+clear; clc;
+t = 0:0.01:40;
+y = exp(-0.04*t) .* (sin(4*t) + 0.6*sin(9*t));
+plot(t, y, 'b')
+u = 1.6*exp(-0.04*t);
+l = -1.6*exp(-0.04*t);
+hold on
+plot(t, u, 'r--')
+plot(t, l, 'g--')
+xlabel('t (sec)')
+ylabel('y(t)')
+title('Damped Signal')
+legend('y(t)', 'u(t)', 'l(t)')
+grid on
+figure
+semilogy(t, abs(y))
+xlabel('t (sec)')
+ylabel('|y(t)|')
+title('Semilogy Plot')
+grid on
+u0 = 1.6*exp(-0.04*0);
+u40 = 1.6*exp(-0.04*40);
+disp('u(0) =')
+disp(u0)
+disp('u(40) =')
+disp(u40)
