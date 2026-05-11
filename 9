@@ -1,0 +1,26 @@
+clear; clc;
+X = [1  3  0;
+     2  5  1;
+     4  8  3;
+     7 12  5;
+     11 17 9];
+x1 = X(:,1);
+x2 = X(:,2);
+x3 = X(:,3);
+theta12 = acosd(dot(x1,x2) / (norm(x1)*norm(x2)));
+theta13 = acosd(dot(x1,x3) / (norm(x1)*norm(x3)));
+theta23 = acosd(dot(x2,x3) / (norm(x2)*norm(x3)));
+theta = [theta12 theta13 theta23];
+[min_theta, idx] = min(theta);
+disp('theta =')
+disp(theta)
+disp('가장 작은 각도 =')
+disp(min_theta)
+disp('가장 방향이 비슷한 센서 번호 =')
+if idx == 1
+    disp('센서 1번과 2번')
+elseif idx == 2
+    disp('센서 1번과 3번')
+else
+    disp('센서 2번과 3번')
+end
