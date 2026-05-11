@@ -1,0 +1,11 @@
+clear; clc;
+A = [7 2 1;
+     2 6 -2;
+     1 -2 5];
+[V, D] = eig(A);
+lambda = diag(D);
+[lambda_max, idx] = max(lambda);
+v = V(:, idx);
+v = v / norm(v);
+check = A*v - lambda_max*v;
+disp(check)
