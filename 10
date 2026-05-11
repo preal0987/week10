@@ -1,0 +1,19 @@
+clear; clc;
+A = [ 9 -2 -1;
+     -2  8 -3;
+     -1 -3 10];
+b = [15; 7; 11];
+I = A\b;
+disp('전류 벡터 I =')
+disp(I)
+d = det(A);
+disp('det(A) =')
+disp(d)
+abs_I = abs(I);
+disp('abs(I) =')
+disp(abs_I)
+[max_abs_I, idx] = max(abs_I);
+disp('절댓값이 가장 큰 전류 =')
+disp(max_abs_I)
+disp('그 전류의 번호 =')
+disp(idx)
