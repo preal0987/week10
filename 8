@@ -1,0 +1,23 @@
+clear; clc;
+t = 0:0.01:24;
+P = 50 + 18*sin(pi*t/12) + 6*cos(pi*t/4);
+plot(t, P)
+xlabel('t (hour)')
+ylabel('P(t)')
+title('Daily Power Usage')
+grid on
+hold on
+[P_max, idx_max] = max(P);
+disp('최대 전력 사용량:')
+disp(P_max)
+t_max = t(idx_max);
+disp('최대 전력 발생 시간:')
+disp(t_max)
+[P_min, idx_min] = min(P);
+t_min = t(idx_min);
+disp('최소 전력 사용량:')
+disp(P_min)
+disp('최소 전력 발생 시간:')
+disp(t_min)
+plot(t_max, P_max, 'ro')
+plot(t_min, P_min, 'bo')
