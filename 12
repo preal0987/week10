@@ -1,0 +1,26 @@
+clear; clc;
+epoch = [1 2 5 10 20 50 100 200];
+loss = [3.1 2.4 1.7 1.2 0.83 0.36 0.14 0.06];
+figure
+plot(epoch, loss, 'o-')
+xlabel('epoch')
+ylabel('loss')
+title('Loss vs Epoch')
+grid on
+figure
+semilogy(epoch, loss, 'o-')
+xlabel('epoch')
+ylabel('loss')
+title('Semilogy Plot')
+grid on
+r = loss(2:end) ./ loss(1:end-1);
+disp('비율 벡터 r =')
+disp(r)
+r_mean = mean(r);
+disp('평균 비율 =')
+disp(r_mean)
+if r_mean < 1
+    disp('loss가 전반적으로 감소하고 있다.')
+else
+    disp('loss가 감소하지 않고 있다.')
+end
