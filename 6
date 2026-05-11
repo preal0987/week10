@@ -1,0 +1,34 @@
+clear; clc;
+x = -6:0.05:6;
+y = -6:0.05:6;
+[X, Y] = meshgrid(x, y);
+Z = exp(-0.08*(X.^2 + Y.^2)) .* cos(3*X) .* sin(2*Y);
+figure
+surf(X, Y, Z)
+xlabel('x')
+ylabel('y')
+zlabel('z')
+title('Surface Plot')
+grid on
+figure
+contour(X, Y, Z, 30)
+xlabel('x')
+ylabel('y')
+title('Contour Plot')
+grid on
+[z_max, idx_max] = max(Z(:));
+[z_min, idx_min] = min(Z(:));
+disp('최대값:')
+disp(z_max)
+disp('최소값:')
+disp(z_min)
+[row_max, col_max] = ind2sub(size(Z), idx_max);
+[row_min, col_min] = ind2sub(size(Z), idx_min);
+x_max = X(row_max, col_max);
+y_max = Y(row_max, col_max);
+x_min = X(row_min, col_min);
+y_min = Y(row_min, col_min);
+disp('최대값 발생 좌표:')
+disp([x_max, y_max])
+disp('최소값 발생 좌표:')
+disp([x_min, y_min])
