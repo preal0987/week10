@@ -1,0 +1,21 @@
+clear; clc;
+n = [50 100 200 400 800 1600];
+T = [14 19 30 51 92 170];
+subplot(1,3,1)
+plot(n, T, 'o-')
+xlabel('n')
+ylabel('T')
+title('plot')
+grid on
+subplot(1,3,2)
+semilogx(n, T, 'o-')
+xlabel('n')
+ylabel('T')
+title('semilogx')
+grid on
+subplot(1,3,3)
+semilogy(n, T, 'o-')
+xlabel('n')
+ylabel('T')
+title('semilogy')
+grid on
