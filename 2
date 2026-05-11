@@ -1,0 +1,26 @@
+clear; clc;
+x = -5:0.05:5;
+y = -5:0.05:5;
+[X, Y] = meshgrid(x, y);
+Z = sin(X.*Y) ./ (1 + X.^2 + Y.^2);
+figure
+mesh(X, Y, Z)
+title('mesh plot')
+xlabel('x')
+ylabel('y')
+zlabel('z')
+grid on
+figure
+contour(X, Y, Z, 25)
+title('contour plot')
+xlabel('x')
+ylabel('y')
+grid on
+[maxZ, idx] = max(abs(Z(:)));
+disp('최대값 =')
+disp(maxZ)
+[row, col] = ind2sub(size(Z), idx);
+x_max = X(row, col);
+y_max = Y(row, col);
+disp('최대 위치 (x, y) =')
+disp([x_max y_max])
